@@ -67,7 +67,6 @@ def get_weather():
                 'maximum_temperature': temp_max,
                 'average_temperature': average,
                 'humidity': hdity,
-                'rain': None
             }
             print(data)
             # Store in database
