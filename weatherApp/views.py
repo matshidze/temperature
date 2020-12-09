@@ -41,9 +41,7 @@ def loginPage(request):
 def get_weather():
 
     api_key = "78a48dd1fcbd10234ee98f9c25a5bb93"
-
-
-    #api_key = "3de49393e4baaf1d1a4a326034002890"
+    #johannesburg
     city_id = "993800"
     url = "http://api.openweathermap.org/data/2.5/forecast"
     querystring = {"id": 993800, "appid": api_key }
