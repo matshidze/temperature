@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+{% if user.is_authenticated %}
+        <div class="container p-3 my-3 bg-dark text-white">
+         <h1> Welcome: {{ user.username }}! </h1>
+           <p><a href="{% url 'logout' %}">logout</a></p>
+        </div>
+
+        <div class="container p-3 my-3 ">
+              <table class="table">
+                  <tr class="table-primary">
+                      <th>Date</th>
+                      <th>Minimum Temperature</th>
+                      <th>Maximum Temperature</th>
+                      <th>Average Temperature</th>
+                      <th>Humidity</th>
+                  </tr>
+                    {% if weather_results %}
+
+                    <tr>
+                        {% for i in weather_results %}
+                        <td> {{ i.data.date }} </td>
+                        <td> {{ i.data.minimum_temperature }} </td>
+                        <td> {{ i.data.maximum_temperature }} </td>
+                        <td> {{ i.data.average_temperature }} </td>
+                        <td> {{ i.data.humidity }} </td>
+                    </tr>
+                        {% endfor %}
+
+
+                  {% endif %}
+              </table>
+            </div>
+{% else %}
+    <div class="container p-3 my-3 bg-dark text-white  ">
+        <h1>Go to Login click the link below ! </h1>
+         <a href="{% url 'login' %}">login</a>
+        </div>
+
+
+{% endif %}
+
+</body>
+</html>

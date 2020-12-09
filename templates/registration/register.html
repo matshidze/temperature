@@ -1,0 +1,44 @@
+<html>
+
+<body>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<div class="container">
+  <div class='col-sn-6'>
+    <div class='panel panel-default'>
+      <div class="container p-3 my-3 bg-dark text-white"><h1>Register</h1> </div>
+      <div class='panel-body'>
+        <form method="post">
+          {% csrf_token %}
+            {{ form.username.label }}
+            {{ form.username }}
+            {{ form.email.label }}
+            {{ form.email }}
+            {{ form.password1.label }}
+            {{ form.password1 }}
+            {{ form.password2.label }}
+            {{ form.password2 }}
+          <button type="submit" value="login/">Register</button>
+        </form>
+      </div>
+      {{ form.errors }}
+
+      <div class="mt-4">
+        <div class="d-flex justify-content-center links">
+          Already have an account? <a href="{% url 'login' %}" class="ml-2">login </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+
+</html>
+
